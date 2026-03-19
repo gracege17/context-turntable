@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Turntable</title>
+    <link rel="stylesheet" href="context-turntable.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="titlebar">
+        <span>Music Turntable v0.1</span>
+        <div class="window-controls">
+          <button id="minBtn" class="window-btn" type="button" aria-label="Minimize">_</button>
+          <button id="maxBtn" class="window-btn" type="button" aria-label="Maximize">□</button>
+          <button id="closeBtn" class="window-btn window-btn-close" type="button" aria-label="Close">×</button>
+        </div>
+      </header>
+      <div class="menubar" aria-hidden="true">
+        <span>File</span>
+        <span>Options</span>
+        <span>Help</span>
+      </div>
+
+      <main class="player-grid">
+        <section class="panel main-player">
+          <div class="display-box">
+            <div class="display-label">TRACK</div>
+            <div id="songTitle" class="song-title">No Track Loaded</div>
+          </div>
+
+          <div class="controls-row">
+            <button id="prevBtn" class="btn-control" aria-label="Previous Track">&laquo;</button>
+            <button id="playPauseBtn" class="btn-control btn-play" aria-label="Play or Pause">Play</button>
+            <button id="nextBtn" class="btn-control" aria-label="Next Track">&raquo;</button>
+          </div>
+        </section>
+
+        <section class="panel playlist-panel">
+          <div class="panel-title">Playlist (Scroll)</div>
+          <ul id="playlistList" class="playlist-list"></ul>
+        </section>
+      </main>
+    </div>
+    <button id="reopenBtn" class="reopen-btn" type="button" hidden>Reopen Player</button>
+
+    <audio id="audioPlayer" preload="metadata"></audio>
+    <script src="context-turntable.js"></script>
+  </body>
+</html>

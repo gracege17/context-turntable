@@ -1,0 +1,248 @@
+:root {
+  --shell: #2d384a;
+  --shell-mid: #273245;
+  --shell-light: #8a98b1;
+  --display-bg: #030405;
+  --display-green: #60ff91;
+  --display-dim: #2c9b57;
+  --text: #d4dbe8;
+  --title-blue: #4d5d78;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "MS Sans Serif", "Tahoma", "Verdana", sans-serif;
+  font-size: 11px;
+  color: var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, #2e3a4e 0%, transparent 32%),
+    radial-gradient(circle at 83% 88%, #283347 0%, transparent 38%),
+    linear-gradient(160deg, #121721, #0c1018);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.app-shell {
+  width: min(340px, 100%);
+  background: linear-gradient(180deg, var(--shell), #222c3b);
+  border: 2px solid;
+  border-color: var(--shell-light) #070b12 #070b12 var(--shell-light);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.45);
+}
+
+.app-shell.app-minimized .player-grid {
+  display: none;
+}
+
+.app-shell.app-maximized {
+  width: min(520px, 100%);
+}
+
+.app-shell.app-closed {
+  display: none;
+}
+
+.titlebar {
+  background: linear-gradient(180deg, #7182a1, var(--title-blue));
+  color: #ffffff;
+  padding: 3px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.1px;
+  border-bottom: 1px solid #131a2a;
+  text-shadow: 0 1px 0 #253148;
+}
+
+.window-controls {
+  display: inline-flex;
+  gap: 3px;
+}
+
+.window-btn {
+  width: 18px;
+  height: 16px;
+  padding: 0;
+  border: 1px solid;
+  border-color: #d2dced #1c2638 #1c2638 #d2dced;
+  background: linear-gradient(180deg, #99a8c0, #71809a);
+  color: #f2f7ff;
+  font-size: 10px;
+  line-height: 1;
+  font-weight: 700;
+  cursor: default;
+  text-shadow: 0 1px 0 #33435d;
+}
+
+.window-btn-close {
+  color: #ffe7e7;
+  background: linear-gradient(180deg, #9e6f78, #7b4d57);
+  border-color: #dfb2b8 #3c2429 #3c2429 #dfb2b8;
+}
+
+.menubar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 2px 6px;
+  font-size: 10px;
+  border-top: 1px solid #93a1ba;
+  border-bottom: 1px solid #1a2233;
+  background: linear-gradient(180deg, #607292, #495a77);
+  color: #e6efff;
+}
+
+.reopen-btn {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  border: 2px solid;
+  border-color: #c2ccdc #212b3b #212b3b #c2ccdc;
+  background: linear-gradient(180deg, #98a6be, #6f7d97);
+  color: #f9fbff;
+  font-weight: 700;
+  font-size: 9px;
+  padding: 5px 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.player-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 4px;
+  padding: 4px;
+}
+
+.panel {
+  background: linear-gradient(180deg, #344055, #242d3c 45%, #1a212f);
+  border: 1px solid;
+  border-color: #7d8ca5 #0c111b #0c111b #7d8ca5;
+  box-shadow: inset 0 0 0 1px #36435a;
+  padding: 4px;
+}
+
+.main-player {
+  background: linear-gradient(180deg, #3b4860, #283245 50%, #1d2534);
+}
+
+.playlist-panel {
+  background: linear-gradient(180deg, #313d53, #222c3d 50%, #191f2c);
+}
+
+.panel-title {
+  text-transform: uppercase;
+  font-size: 8px;
+  color: #a6b3c7;
+  margin-bottom: 3px;
+  letter-spacing: 0.3px;
+}
+
+.display-box {
+  background: var(--display-bg);
+  border: 2px solid;
+  border-color: #4b5971 #010203 #010203 #4b5971;
+  box-shadow:
+    inset 1px 1px 0 #111a2a,
+    inset -1px -1px 0 #000000,
+    inset 0 0 0 1px #0b121e;
+  padding: 5px;
+}
+
+.display-label {
+  color: var(--display-dim);
+  font-size: 8px;
+  margin-bottom: 2px;
+  letter-spacing: 0.3px;
+}
+
+.song-title {
+  color: var(--display-green);
+  font-family: "Lucida Console", "Courier New", monospace;
+  font-size: 10px;
+  line-height: 1.2;
+  min-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: none;
+}
+
+.controls-row {
+  display: flex;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.btn-control {
+  border: 1px solid;
+  border-color: #c2ccdc #212b3b #212b3b #c2ccdc;
+  box-shadow:
+    inset 1px 1px 0 #eef3fb,
+    inset -1px -1px 0 #53607a;
+  background: linear-gradient(180deg, #98a6be, #6f7d97);
+  color: #f9fbff;
+  font-weight: 700;
+  font-size: 8px;
+  min-width: 34px;
+  padding: 3px 6px;
+  cursor: pointer;
+  text-shadow: 0 1px 0 #34415a;
+  text-transform: uppercase;
+}
+
+.btn-control:active {
+  border-color: #1b2536 #c2ccdc #c2ccdc #1b2536;
+  background: linear-gradient(180deg, #64718a, #8998b0);
+  transform: translateY(1px);
+}
+
+.btn-play {
+  min-width: 48px;
+}
+
+.playlist-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: #05070b;
+  border: 1px solid;
+  border-color: #4b5970 #010204 #010204 #4b5970;
+  height: 66px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.playlist-item {
+  padding: 4px 5px;
+  font-family: "Lucida Console", "Courier New", monospace;
+  color: #86c799;
+  border-bottom: 1px solid #0d1117;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.playlist-item:last-child {
+  border-bottom: none;
+}
+
+.playlist-item:hover {
+  background: #0f1d2d;
+}
+
+.playlist-item.active {
+  color: #dcffe4;
+  background: #113a4e;
+  box-shadow:
+    inset 1px 1px 0 #23556b,
+    inset -1px -1px 0 #0a2431;
+}
